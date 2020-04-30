@@ -1,0 +1,16 @@
+.input {
+    width: 100%;
+    background-color: $Light-cyan;
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    padding: 12px;
+    border: 1px solid $Dark-grey;
+    border-radius: 10px;
+    color: $White-text;
+    outline: none;
+    margin: 10px 0;
+}
+
+.input:focus {
+    background-color: $Dark-cyan;
+}

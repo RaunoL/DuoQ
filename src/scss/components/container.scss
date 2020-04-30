@@ -1,0 +1,15 @@
+.container {
+    display: grid;
+    grid-template-columns: 33% 34% 33%;
+    grid-template-rows: 50px auto auto;
+}
+
+.logo {
+    grid-row-start: 2;
+    grid-column-start: 2;
+}
+
+.main {
+    grid-row-start: 3;
+    grid-column-start: 2;
+}
