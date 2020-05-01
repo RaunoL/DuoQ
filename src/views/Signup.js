@@ -3,7 +3,6 @@ import Button from "../components/Button";
 
 import Main from "../components/Main";
 import Input from "../components/Input";
-import Checkbox from "../components/Checkbox";
 
 function Signup(){
     return(
