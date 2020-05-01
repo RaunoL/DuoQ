@@ -16,9 +16,10 @@ import Signup from "./views/Signup";
 import Header from "./components/Header";
 import Container from "./components/Container";
 import Background from "./components/Background";
-
+import useAuth from "./services/firebase/useAuth"
 
 function App() {
+  const { isAuthenticated } = useAuth();
     return ( 
       <Background>
       <Container>
