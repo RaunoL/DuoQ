@@ -1,10 +1,27 @@
-import React from 'react';
+import React, {useState } from 'react';
 import Button from "../components/Button";
 
 import Main from "../components/Main";
 import Input from "../components/Input";
 
-function Signup(){
+
+
+function Signup(props){
+    const [severErrorMessage, setServerErrorMessage] = useState('');
+    const {createEmailUser} = props;
+    const [error, setError] = useState();
+    const handleEvent =  () => {
+    
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        try {
+          const user = createEmailUser(email, password);
+          console.log(user);
+        } catch (error) {
+          setError(error.message);
+        }
+        
+      }
     return(
         <Main>
             <h5>Email</h5>
@@ -19,10 +36,11 @@ function Signup(){
             <Input width={"30%"} type={"text"} placeholder="Tag" id={"DCTag"}></Input>
             </div>
             
-            <Button id={"signup"} text={"Sign Up"}/>
+            <Button id={"signup"} text={"Sign Up"} handleEvent={handleEvent}/>
             
         </Main>
 
     )
+    
 }
 export default Signup

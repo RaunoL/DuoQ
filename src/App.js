@@ -2,7 +2,8 @@ import React from 'react';
 import {
   Switch,
   Route,
-  useLocation
+  useLocation,
+  Redirect
 } from "react-router-dom";
 import {
   BrowserRouter as Router
@@ -16,38 +17,49 @@ import Signup from "./views/Signup";
 import Header from "./components/Header";
 import Container from "./components/Container";
 import Background from "./components/Background";
-import useAuth from "./services/firebase/useAuth"
+import Protected from "./components/Protected";
+import useAuth from "./services/firebase/useAuth";
+
+//firebase
+import firebase from "firebase/app";   // the firbase core lib
+import 'firebase/auth'; // specific products
+import firebaseConfig from "./config/firebase/firebase";  // the firebase config we set up ealier
+if (firebase.apps.length === 0) {
+  firebase.initializeApp(firebaseConfig);
+}
 
 function App() {
-  const { isAuthenticated } = useAuth();
-    return ( 
-      <Background>
+  const { isAuthenticated, createEmailUser, signInEmailUser} = useAuth(firebase.auth());
+  return (
+    <Background>
       <Container>
-      <Header/>
-      <Router>
-      <Switch>
-              <Route exact path="/">
-                <Index />
-              </Route>
-              <Route path="/sign-in">
-                <Signin />
-              </Route>
-              <Route path="/settings">
+        <Header />
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <Index />
+            </Route>
+            <Route path="/sign-in">
+              <Signin signInEmailUser={signInEmailUser}/>
+            </Route>
+           
+              <Protected authenticated={isAuthenticated} exact path="/settings">
                 <Settings />
-              </Route>
-              <Route path="/main">
+              </Protected>
+            
+              <Protected authenticated={isAuthenticated} exact path="/dash">
                 <Dash />
-              </Route>
-              <Route path="/sign-up">
-                <Signup />
-              </Route>
-            </Switch>
-            </Router>
+              </Protected>
+            <Route path="/sign-up">
+              <Signup createEmailUser={createEmailUser}/>
+            </Route>
+          </Switch>
+        </Router>
       </Container>
     </Background>
-      
-      
-    );
+
+
+  );
 }
 
 export default App;
