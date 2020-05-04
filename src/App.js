@@ -29,7 +29,7 @@ if (firebase.apps.length === 0) {
 }
 
 function App() {
-  const { isAuthenticated, createEmailUser, signInEmailUser} = useAuth(firebase.auth());
+  const { isAuthenticated, createEmailUser, signInEmailUser, signOut} = useAuth(firebase.auth());
   return (
     <Background>
       <Container>

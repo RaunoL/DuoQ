@@ -7,6 +7,7 @@ import Checkbox from "../components/Checkbox";
 
 function Signin(props){
     const {signInEmailUser} = props;
+    const {signOut} = props;
     const [error, setError] = useState();
     const handleEvent =  () => {
     
