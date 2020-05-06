@@ -12,8 +12,6 @@ import "./scss/style.scss";
 import Index from "./views/Index";
 import Dash from "./views/Dash";
 import Settings from "./views/Settings";
-import Signin from "./views/Signin";
-import Signup from "./views/Signup";
 import Header from "./components/Header";
 import Container from "./components/Container";
 import Background from "./components/Background";
@@ -30,6 +28,7 @@ if (firebase.apps.length === 0) {
 
 function App() {
   const { isAuthenticated, createEmailUser, signInEmailUser} = useAuth(firebase.auth());
+  
   return (
     <Background>
       <Container>
@@ -37,10 +36,7 @@ function App() {
         <Router>
           <Switch>
             <Route exact path="/">
-              <Index />
-            </Route>
-            <Route path="/sign-in">
-              <Signin signInEmailUser={signInEmailUser}/>
+              <Index createEmailUser={createEmailUser} signInEmailUser= {signInEmailUser} />
             </Route>
            
               <Protected authenticated={isAuthenticated} exact path="/settings">
@@ -50,9 +46,6 @@ function App() {
               <Protected authenticated={isAuthenticated} exact path="/dash">
                 <Dash />
               </Protected>
-            <Route path="/sign-up">
-              <Signup createEmailUser={createEmailUser}/>
-            </Route>
           </Switch>
         </Router>
       </Container>

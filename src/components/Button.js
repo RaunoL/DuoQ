@@ -3,9 +3,9 @@ import React from 'react';
 function Button (props){
     const { text } = props;
     const { id } = props;
-    const { handleEvent } = props;
+    const { type } = props;
     return (
-    <button id={id} class='button' onClick={handleEvent}>{text}</button>
+    <button type={type} id={id} class='button'>{text}</button>
     )
 }
 
