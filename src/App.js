@@ -15,39 +15,25 @@ import Settings from "./views/Settings";
 import Header from "./components/Header";
 import Container from "./components/Container";
 import Background from "./components/Background";
-import Protected from "./components/Protected";
-import useAuth from "./services/firebase/useAuth";
+import { AuthProvider } from "./services/firebase/auth";
+import ProtectedRoute from "./components/ProtectedRoute";
 
-//firebase
-import firebase from "firebase/app";   // the firbase core lib
-import 'firebase/auth'; // specific products
-import firebaseConfig from "./config/firebase/firebase";  // the firebase config we set up ealier
-if (firebase.apps.length === 0) {
-  firebase.initializeApp(firebaseConfig);
-}
 
 function App() {
-  const { isAuthenticated, createEmailUser, signInEmailUser} = useAuth(firebase.auth());
-  
+
   return (
     <Background>
       <Container>
         <Header />
-        <Router>
-          <Switch>
-            <Route exact path="/">
-              <Index createEmailUser={createEmailUser} signInEmailUser= {signInEmailUser} />
-            </Route>
-           
-              <Protected authenticated={isAuthenticated} exact path="/settings">
-                <Settings />
-              </Protected>
-            
-              <Protected authenticated={isAuthenticated} exact path="/dash">
-                <Dash />
-              </Protected>
-          </Switch>
-        </Router>
+        <AuthProvider>
+          <Router>
+            <Switch>
+              <Route exact path="/" component={Index}></Route>
+              <ProtectedRoute exact path="/dash" component={Dash}></ProtectedRoute>
+              <ProtectedRoute exact path="/settings" component={Settings}></ProtectedRoute>
+            </Switch>
+          </Router>
+        </AuthProvider>
       </Container>
     </Background>
 

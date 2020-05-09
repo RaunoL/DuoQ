@@ -3,14 +3,26 @@ import Button from "../components/Button";
 
 import Main from "../components/Main";
 
-function Dash(){
-    return(
-        
-        <Main>
-          <Button id={"login"} text={"Log In"}/>
-          <Button id={"signup"} text={"Sign Up"}/>
-        </Main>
-    
-    )
+import app from "../services/firebase/base"
+
+function Dash(props) {
+
+  const signOut = () => {
+    try {
+      app
+        .auth()
+        .signOut();
+    } catch (error) {
+      alert(error);
+    }
+  }
+  return (
+
+    <Main>
+      <button onClick={signOut}>signout</button>
+
+    </Main>
+
+  )
 }
 export default Dash
