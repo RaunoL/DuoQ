@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   Switch,
   Route,
@@ -15,12 +15,11 @@ import Settings from "./views/Settings";
 import Header from "./components/Header";
 import Container from "./components/Container";
 import Background from "./components/Background";
-import { AuthProvider } from "./services/firebase/auth";
+import { AuthProvider, AuthContext } from "./services/firebase/auth";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 
 function App() {
-
   return (
     <Background>
       <Container>
