@@ -7,6 +7,7 @@ import RegionLeague from "../components/settings/RegionLeague";
 import GameModeLeague from "../components/settings/GameModeLeague";
 import VoiceChat from "../components/settings/VoiceChat";
 import Mbti from "../components/settings/Mbti";
+import FindMatch from "../components/FindMatch";
 
 
 function Settings() {
@@ -30,8 +31,11 @@ function Settings() {
   else if(voice == null){
     currentForm = <VoiceChat setVoice={setVoice}></VoiceChat>
   }
-  else if(personality == null){
-    currentForm = <Mbti setPersonality={setPersonality}></Mbti>
+  // else if(personality == null){
+  //   currentForm = <Mbti setPersonality={setPersonality}></Mbti>
+  // }
+  else{
+    currentForm = <FindMatch game={game} gameMode={gameMode} region={region} voice={voice}></FindMatch>
   }
   return (
     <Main>

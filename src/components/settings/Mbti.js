@@ -6,8 +6,7 @@ function Mbti(props){
     const {setPersonality} = props;
     const changePersonality = (event)=>{
         event.preventDefault();
-        console.log(event.target);
-
+        console.log(event.target.elements.mbti.value);
     }
     return(
         <form class="MBTI" onSubmit={changePersonality}>

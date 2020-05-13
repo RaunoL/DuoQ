@@ -1,14 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from "../components/Button";
 
 import Main from "../components/Main";
 import Input from "../components/Input";
 import app from "../services/firebase/base";
 import { AuthContext } from "../services/firebase/auth";
+import FindMatch from '../components/FindMatch';
+import QueueStatus from '../components/QueueStatus';
 function Dash(props) {
 
   const { currentUser } = useContext(AuthContext);
-  console.log(currentUser);
+  const [queueState, setQueueState]= useState(null);
   const changeName = (e) => {
     e.preventDefault();
     const {displayName} = e.target.elements;
@@ -40,7 +42,7 @@ function Dash(props) {
         <Input type={"text"} placeholder="Display name" id={"displayName"}></Input>
         <Button type={"submit"} id={"changeName"} text={"Change name"} />
       </form>
-
+      <QueueStatus queueState={queueState} setQueueState={setQueueState}></QueueStatus>
     </Main>
 
   )
