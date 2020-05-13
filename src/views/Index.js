@@ -1,9 +1,10 @@
-import React, {useState, Component} from 'react';
+import React, {useState, useContext} from 'react';
 import Button from "../components/Button";
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import Main from "../components/Main";
 import LoginForm from "../components/LoginForm";
 import SignupForm from "../components/SignupForm";
+import {AuthContext} from "../services/firebase/auth";
 
 function Index(){
   const [showComponent, setShowComponent] = useState(null);
@@ -20,6 +21,14 @@ function Index(){
   if (showComponent=="LoginForm"){
     form = <LoginForm></LoginForm>
   }
+  const { currentUser } = useContext(AuthContext);
+
+    if (currentUser) {
+      
+    
+      return <Redirect to="/dash" />;
+      
+    }
     return(
         
         <Main>

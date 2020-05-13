@@ -28,3 +28,11 @@
     grid-row-start: 3;
     grid-column-start: 3;
 }
+
+@media(max-width: 1000px) {
+    .container {
+        display: grid;
+        grid-template-columns: 5% 90% 5%;
+        grid-template-rows: 50px auto auto;
+    }
+}
