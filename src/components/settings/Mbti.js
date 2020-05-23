@@ -14,7 +14,7 @@ function Mbti(props){
           <Input type="text" id="MBTI" placeholder="Personality type"></Input>
           <h4>Don't know? <a  rel="noopener noreferrer" href="https://www.16personalities.com/free-personality-test" target="_blank">Take a test</a></h4>
           <Button id="MBTI" text="Next"></Button>
-          {/* <Button id="noMBTI" text="Skip for now"></Button> */}
+          <Button id="noMBTI" text="Skip for now"></Button>
         </form> 
     )
 }

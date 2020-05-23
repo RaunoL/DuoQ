@@ -5,7 +5,6 @@ import { AuthContext } from "../services/firebase/auth";
 function QueueStatus(props) {
     const {queueState} = props;
     const {setQueueState} = props;
-    let currentStatus= <h1>Nothing to render</h1>;
     const { currentUser } = useContext(AuthContext);
     const queueref = app.firestore().collection("queue");
     const matchref = app.firestore().collection("match");
@@ -19,13 +18,13 @@ function QueueStatus(props) {
                     .get()
                     .then((matchSnapshot) => {
                         if (matchSnapshot.docs == "") {
-                            setQueueState("Not in queue")
+                            setQueueState("Not in queue");
                         }
                         else {
                             matchSnapshot.forEach((doc)=>{
                                 let matchDiscord = doc.data().matchDiscord;
                                 console.log(doc.data())
-                                setQueueState( matchDiscord)
+                                setQueueState(matchDiscord)
                             })
                         }
                     })
@@ -35,8 +34,6 @@ function QueueStatus(props) {
                 setQueueState("In queue")
             }
         })
-    return (
-    <h1>{queueState}</h1>
-    )
+    return null
 }
 export default QueueStatus

@@ -1,5 +1,4 @@
 import React from 'react';
-
 function Button (props){
     const { text } = props;
     const { id } = props;
