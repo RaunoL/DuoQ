@@ -1,7 +1,5 @@
 import React, {useState} from 'react';
-import Button from "../components/Button";
 import Main from "../components/Main";
-import Input from "../components/Input";
 import ChooseGame from "../components/settings/ChooseGame";
 import RegionLeague from "../components/settings/RegionLeague";
 import GameModeLeague from "../components/settings/GameModeLeague";
@@ -22,16 +20,16 @@ function Settings() {
     currentForm = <ChooseGame setGame={setGame}></ChooseGame>
     console.log(game);
   }
-  else if (gameMode==null || gameMode==1  && game == 1){
+  else if ((gameMode===null || gameMode===1)  && game === 1){
     currentForm = <GameModeLeague gameMode={gameMode} setGameMode={setGameMode}> </GameModeLeague>
   }
-  else if(region==null && game == 1){
+  else if(region===null && game === 1){
     currentForm = <RegionLeague setRegion={setRegion}></RegionLeague>
   }
-  else if(voice == null){
+  else if(voice === null){
     currentForm = <VoiceChat setVoice={setVoice}></VoiceChat>
   }
-  else if(personality == null){
+  else if(personality === null){
     currentForm = <Mbti setPersonality={setPersonality}></Mbti>
   }
   else{

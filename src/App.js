@@ -1,9 +1,7 @@
-import React, { useContext } from 'react';
+import React  from 'react';
 import {
   Switch,
-  Route,
-  useLocation,
-  Redirect
+  Route
 } from "react-router-dom";
 import {
   BrowserRouter as Router
@@ -15,7 +13,7 @@ import Settings from "./views/Settings";
 import Header from "./components/Header";
 import Container from "./components/Container";
 import Background from "./components/Background";
-import { AuthProvider, AuthContext } from "./services/firebase/auth";
+import { AuthProvider } from "./services/firebase/auth";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 

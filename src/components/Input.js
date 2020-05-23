@@ -8,7 +8,7 @@ function Input(props){
         width: width
     }
     return(
-        <input style={widthStyle} class="input" type={type} id={id} placeholder={placeholder}></input>
+        <input style={widthStyle} className="input" type={type} id={id} placeholder={placeholder}></input>
     )
 }
 export default Input

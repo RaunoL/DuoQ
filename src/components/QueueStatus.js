@@ -1,9 +1,8 @@
-import React, { useContext } from "react"
+import { useContext } from "react"
 import app from "../services/firebase/base";
 import { AuthContext } from "../services/firebase/auth";
 
 function QueueStatus(props) {
-    const {queueState} = props;
     const {setQueueState} = props;
     const { currentUser } = useContext(AuthContext);
     const queueref = app.firestore().collection("queue");
@@ -12,12 +11,12 @@ function QueueStatus(props) {
         .where("uid", "==", currentUser.uid)
         .get()
         .then((queueSnapshot) => {
-            if (queueSnapshot.docs == "") {
+            if (queueSnapshot.docs === "") {
                 matchref
                     .where("uid", "==", currentUser.uid)
                     .get()
                     .then((matchSnapshot) => {
-                        if (matchSnapshot.docs == "") {
+                        if (matchSnapshot.docs === "") {
                             setQueueState("Not in queue");
                         }
                         else {

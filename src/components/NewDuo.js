@@ -12,8 +12,8 @@ function NewDuo(props) {
     const history = useHistory();
     const removeFromQueue = (e) => {
         const queueref = app.firestore().collection("queue");
-        queueref.
-            where("uid", "==", currentUser.uid)
+        queueref
+            .where("uid", "==", currentUser.uid)
             .get()
             .then((querySnapshot) => {
                 querySnapshot.forEach(function (doc) {
@@ -29,8 +29,8 @@ function NewDuo(props) {
     }
     const newMatch = (e) => {
         const matchref = app.firestore().collection("match");
-        matchref.
-            where("uid", "==", currentUser.uid)
+        matchref
+            .where("uid", "==", currentUser.uid)
             .get()
             .then((querySnapshot) => {
                 querySnapshot.forEach(function (doc) {
@@ -41,8 +41,8 @@ function NewDuo(props) {
                 });
             })
             .then(() => {
-                matchref.
-                    where("matchUid", "==", currentUser.uid)
+                matchref
+                    .where("matchUid", "==", currentUser.uid)
                     .get()
                     .then((querySnapshot) => {
                         querySnapshot.forEach(function (doc) {
@@ -57,7 +57,7 @@ function NewDuo(props) {
                 setQueueState("Not in queue");
             })
     }
-    if (queueState == "In queue") {
+    if (queueState === "In queue") {
         return (
             <div>
                 <h1>In queue</h1>
@@ -66,13 +66,13 @@ function NewDuo(props) {
 
         )
     }
-    if (queueState == "Not in queue") {
+    if (queueState === "Not in queue") {
         history.push("/settings")
     }
-    if (queueState == null) {
+    if (queueState === null) {
         return null
     }
-    if (queueState != "In queue" || queueState != "Not in queue") {
+    if (queueState !== "In queue" || queueState !== "Not in queue") {
         return (
             <div>
                 <h5>You have been matched with</h5>

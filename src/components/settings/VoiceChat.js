@@ -7,7 +7,7 @@ function VoiceChat(props){
         setVoice(e.target.id)
     }
     return(
-        <div class="voiceChat">
+        <div className="voiceChat">
           <h4>Do you want to use voice chat?</h4>
           <Button action={changeVoice} id="1" text="Yes"></Button>
           <Button action={changeVoice} id="0" text="No"></Button>

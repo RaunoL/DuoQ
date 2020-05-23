@@ -1,8 +1,7 @@
 import app from "../services/firebase/base";
 import React, { useContext } from "react";
 import { AuthContext } from "../services/firebase/auth";
-import { Redirect, Router } from "react-router"
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 function FindMatch(props) {
     const { currentUser } = useContext(AuthContext);
     const history = useHistory();
@@ -19,7 +18,7 @@ function FindMatch(props) {
         .where("voice", "==", voice)
         .get()
         .then((querySnapshot) => {
-            if (querySnapshot.docs == "") {
+            if (querySnapshot.docs === "") {
                 app.firestore().collection("queue")
                     .add({
                         uid: currentUser.uid,

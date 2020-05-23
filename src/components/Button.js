@@ -5,7 +5,7 @@ function Button (props){
     const { type } = props;
     const {action} = props;
     return (
-    <button type={type} id={id} onClick={action} class='button'>{text}</button>
+    <button type={type} id={id} onClick={action} className='button'>{text}</button>
     )
 }
 

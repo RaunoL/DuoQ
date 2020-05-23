@@ -5,7 +5,6 @@ import Main from "../components/Main";
 import Input from "../components/Input";
 import app from "../services/firebase/base";
 import { AuthContext } from "../services/firebase/auth";
-import FindMatch from '../components/FindMatch';
 import QueueStatus from '../components/QueueStatus';
 import NewDuo from "../components/NewDuo";
 function Dash(props) {

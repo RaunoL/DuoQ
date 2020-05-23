@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react';
 import Button from "../components/Button";
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import Main from "../components/Main";
 import LoginForm from "../components/LoginForm";
 import SignupForm from "../components/SignupForm";
@@ -15,10 +15,10 @@ function Index(){
   const showSignup = ()=>{
     setShowComponent("SignupForm");
   }
-  if (showComponent=="SignupForm"){
+  if (showComponent==="SignupForm"){
     form =  <SignupForm></SignupForm>
   }
-  if (showComponent=="LoginForm"){
+  if (showComponent==="LoginForm"){
     form = <LoginForm></LoginForm>
   }
   const { currentUser } = useContext(AuthContext);

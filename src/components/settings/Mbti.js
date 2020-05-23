@@ -9,7 +9,7 @@ function Mbti(props){
         setPersonality(event.target.elements.MBTI.value)
     }
     return(
-        <form class="MBTI" onSubmit={changePersonality}>
+        <form className="MBTI" onSubmit={changePersonality}>
           <h4>What is your MBTI personality type?</h4>
           <Input type="text" id="MBTI" placeholder="Personality type"></Input>
           <h4>Don't know? <a  rel="noopener noreferrer" href="https://www.16personalities.com/free-personality-test" target="_blank">Take a test</a></h4>

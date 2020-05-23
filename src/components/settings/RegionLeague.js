@@ -7,7 +7,7 @@ function RegionLeague(props){
         setRegion(e.target.id);
     }
     return(
-        <div class="RegionLeague" id="region1">
+        <div className="RegionLeague" id="region1">
           <h4>Choose Your region</h4>
           <Button action ={changeRegion} id="1" text="EUW"></Button>
           <Button action ={changeRegion} id="2" text="EUNE"></Button>
