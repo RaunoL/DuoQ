@@ -10,6 +10,7 @@ function FindMatch(props) {
     const { gameMode } = props;
     const { region } = props;
     const { voice } = props;
+    const {personality} = props
     const queueref = app.firestore().collection("queue");
     queueref
         .where("game", "==", game)
@@ -26,7 +27,8 @@ function FindMatch(props) {
                         game: game,
                         mode: gameMode,
                         region: region,
-                        voice: voice
+                        voice: voice,
+                        personality: personality
                     })
                     .then(function () {
                         history.push("/dash")

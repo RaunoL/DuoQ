@@ -31,11 +31,11 @@ function Settings() {
   else if(voice == null){
     currentForm = <VoiceChat setVoice={setVoice}></VoiceChat>
   }
-  // else if(personality == null){
-  //   currentForm = <Mbti setPersonality={setPersonality}></Mbti>
-  // }
+  else if(personality == null){
+    currentForm = <Mbti setPersonality={setPersonality}></Mbti>
+  }
   else{
-    currentForm = <FindMatch game={game} gameMode={gameMode} region={region} voice={voice}></FindMatch>
+    currentForm = <FindMatch personality={personality} game={game} gameMode={gameMode} region={region} voice={voice}></FindMatch>
   }
   return (
     <Main>
