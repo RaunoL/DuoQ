@@ -13,7 +13,7 @@ const LoginForm = ({ history }) => {
           await app
             .auth()
             .signInWithEmailAndPassword(email.value, password.value);
-          history.push("/");
+          history.push("/dash");
         } catch (error) {
           alert(error);
         }

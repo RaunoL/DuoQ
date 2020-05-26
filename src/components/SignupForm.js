@@ -35,7 +35,7 @@ const SignUp = ({ history }) => {
             <Input type={"password"} placeholder="Password" id={"password"}></Input>
             <h5>Discord</h5>
             <Input type={"text"} placeholder="Discord name and tag" id={"discord"}></Input>
-            <Button type="submit" id={"signUp"} text={"Sign Up"}/>
+            <Button type={"submit"} id={"signUp"} text={"Sign Up"}/>
         </form>
       </div>
     );
