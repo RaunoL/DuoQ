@@ -27,7 +27,7 @@ function GameModeLeague(props) {
             <Button action={changeMode} id="10" text="Master or above"></Button>
         </div>;
     let currentMode;
-    if (gameMode === 1){
+    if (gameMode === "1"){
         currentMode = gameRanks;
     }
     else{

@@ -18,8 +18,9 @@ function FindMatch(props) {
         .where("voice", "==", voice)
         .get()
         .then((querySnapshot) => {
-            if (querySnapshot.docs === "") {
-                app.firestore().collection("queue")
+            console.log(typeof querySnapshot.docs)
+            if (querySnapshot.docs == "") {
+                queueref
                     .add({
                         uid: currentUser.uid,
                         discord: currentUser.displayName,
@@ -56,7 +57,7 @@ function FindMatch(props) {
                             matchUid: match.uid,
                             matchDiscord: match.discord
                         })
-                        .then(function () {
+                        .then( ()=> {
                             app.firestore().collection("match")
                                 .add({
                                     uid: match.uid,
@@ -77,7 +78,6 @@ function FindMatch(props) {
             }
 
         })
-    history.push("/dash")
     return (
         <h1>Finding your Duo</h1>
     )

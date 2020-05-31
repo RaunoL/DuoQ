@@ -6,7 +6,6 @@ import app from "../services/firebase/base";
 
 function NewDuo(props) {
     const { queueState } = props;
-    console.log(queueState)
     const { setQueueState } = props
     const { currentUser } = useContext(AuthContext);
     const history = useHistory();
@@ -45,7 +44,7 @@ function NewDuo(props) {
                     .where("matchUid", "==", currentUser.uid)
                     .get()
                     .then((querySnapshot) => {
-                        querySnapshot.forEach(function (doc) {
+                        querySnapshot.forEach( (doc)=> {
                             const matchQueueId = doc.id;
                             matchref
                                 .doc(matchQueueId)

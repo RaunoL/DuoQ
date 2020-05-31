@@ -11,12 +11,12 @@ function QueueStatus(props) {
         .where("uid", "==", currentUser.uid)
         .get()
         .then((queueSnapshot) => {
-            if (queueSnapshot.docs === "") {
+            if (queueSnapshot.docs == "") {
                 matchref
                     .where("uid", "==", currentUser.uid)
                     .get()
                     .then((matchSnapshot) => {
-                        if (matchSnapshot.docs === "") {
+                        if (matchSnapshot.docs == "") {
                             setQueueState("Not in queue");
                         }
                         else {

@@ -22,7 +22,6 @@ function Index(){
     form = <LoginForm></LoginForm>
   }
   const { currentUser } = useContext(AuthContext);
-
     if (currentUser) {
       
     
