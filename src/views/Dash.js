@@ -7,23 +7,16 @@ import app from "../services/firebase/base";
 import { AuthContext } from "../services/firebase/auth";
 import QueueStatus from '../components/QueueStatus';
 import NewDuo from "../components/NewDuo";
-function Dash(props) {
+function Dash() {
 
   const { currentUser } = useContext(AuthContext);
   const [queueState, setQueueState]= useState(null);
   const changeName = (e) => {
     e.preventDefault();
     const {displayName} = e.target.elements;
-    console.log(displayName.value);
     currentUser.updateProfile({
       displayName: displayName.value
-    }).then(function() {
-      // Update successful.
-      console.log("success")
-    }).catch(function(error) {
-      console.log("error")
-      // An error happened.
-    });
+    })
   }
   const signOut = () => {
     try {

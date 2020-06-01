@@ -22,7 +22,6 @@ function QueueStatus(props) {
                         else {
                             matchSnapshot.forEach((doc)=>{
                                 let matchDiscord = doc.data().matchDiscord;
-                                console.log(doc.data())
                                 setQueueState(matchDiscord)
                             })
                         }
